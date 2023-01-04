@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "ahmadawais.shades-of-purple",
+    "AlanCole.gherkintablealign",
+    "alefragnani.Bookmarks",
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "dsznajder.es7-react-js-snippets",
+    "eamodio.gitlens",
+    "eg2.vscode-npm-script",
+    "esbenp.prettier-vscode",
+    "firsttris.vscode-jest-runner",
+    "formulahendry.auto-rename-tag",
+    "fudd.toggle-zen-mode",
+    "hashicorp.terraform",
+    "helixquar.randomeverything",
+    "johnpapa.vscode-peacock",
+    "kruemelkatze.vscode-dashboard",
+    "mhutchie.git-graph",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+    "nrwl.angular-console",
+    "Perkovec.emoji",
+    "PKief.material-icon-theme",
+    "planbcoding.vscode-react-refactor",
+    "Prisma.prisma",
+    "ritwickdey.LiveServer"
+  ]
+}

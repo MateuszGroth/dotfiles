@@ -34,5 +34,6 @@ brew "heroku/brew/heroku"
 # Terminal built on web technologies
 cask "hyper"
 cask "google-chrome"
+cask "firefox"
 cask "visual-studio-code"
 
