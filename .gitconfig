@@ -1,0 +1,7 @@
+[user]
+	name = MateuszGroth
+	email = 39166248+MateuszGroth@users.noreply.github.com
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
