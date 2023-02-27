@@ -13,14 +13,10 @@ alias zn='vim $NOTES_DIR/$(date +"%Y%m%d%H%M.md")'
 
 alias ta='tmux attach -t'
 
-alias l='exa -lah'
-alias ls=exa
-alias sl=exa
 alias c='clear'
 alias s='source ~/.zshrc'
 alias h=heroku
 alias jj='pbpaste | jsonpp | pbcopy'
-alias rm=trash
 alias trim="awk '{\$1=\$1;print}'"
 
 
@@ -122,14 +118,7 @@ dreset () {
     docker system prune -a
 }
 
-
-extract-audio-and-video () {
-    ffmpeg -i "$1" -c:a copy obs-audio.aac
-    ffmpeg -i "$1" -c:v copy obs-video.mp4
-}
-
 alias epdir='cd `epdir.sh`'
-
 
 hs () {
  curl https://httpstat.us/$1

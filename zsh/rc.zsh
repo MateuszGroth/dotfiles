@@ -51,8 +51,8 @@ precmd() {
     source $DOTFILES/zsh/aliases.zsh
 }
 
-export VISUAL=nvim
-export EDITOR=nvim
+export VISUAL=vim
+export EDITOR=vim
 export PATH="$PATH:/usr/local/sbin:$DOTFILES/bin:$HOME/.local/bin"
 
 # VIM MODE (http://dougblack.io/words/zsh-vi-mode.html) -----------------------

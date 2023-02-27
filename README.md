@@ -34,3 +34,7 @@
     ln -s ~/.dotfiles/hyper/.hyper.js ~/.hyper.js
     ln -s ~/.dotfiles/zsh/rc.zsh ~/.zshrc
 ```
+
+### Env variables
+
+Put you environment variables into ~/.env.sh
