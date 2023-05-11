@@ -6,9 +6,21 @@
     xcode-select --install
 ```
 
-2. Clone dotfiles repo
+2. Install brew
 
-Just download main and unzip
+```shell
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Follow the instructions to add brew to path and then
+
+3. Install git with brew
+
+```shell
+    brew install git
+```
+
+4. Clone dotfiles repo
 
 > HTTPS
 
@@ -22,22 +34,28 @@ Just download main and unzip
     git clone git@github.com:MateuszGroth/dotfiles.git ~/.dotfiles
 ```
 
-3. Install brew
+5. Install brew in case it wasn't installed in the previous steps
 
 ```shell
-    cd brew && bash install.sh
+    bash ./brew/install.sh
 ```
 
 Follow the instructions to add brew to path and then
 
 ```shell
-    brew bundle install --file=./Brewfile
+    brew bundle --file ~/.dotfiles/brew/Brewfile
 ```
 
 4. Bootstrap the machine
 
 ```shell
-    ./install/bootstrap.sh
+    bash ./install/bootstrap.sh
+```
+
+5. Install oh my zsh
+
+```shell
+    bash ./oh-my-zsh/install.sh
 ```
 
 ### Manual linking
