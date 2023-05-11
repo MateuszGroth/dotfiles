@@ -8,6 +8,8 @@
 
 2. Clone dotfiles repo
 
+Just download main and unzip
+
 > HTTPS
 
 ```shell
@@ -20,10 +22,22 @@
     git clone git@github.com:MateuszGroth/dotfiles.git ~/.dotfiles
 ```
 
-3. Bootstrap the machine
+3. Install brew
 
 ```shell
-    ./scripts/bootstrap.sh
+    cd brew && bash install.sh
+```
+
+Follow the instructions to add brew to path and then
+
+```shell
+    brew bundle install --file=./Brewfile
+```
+
+4. Bootstrap the machine
+
+```shell
+    ./install/bootstrap.sh
 ```
 
 ### Manual linking
