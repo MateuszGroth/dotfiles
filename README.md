@@ -58,6 +58,24 @@ Follow the instructions to add brew to path and then
     bash ./oh-my-zsh/install.sh
 ```
 
+6. setup git ssh connection
+
+```shell
+    cd ~/.ssh && ssh-keygen -t rsa
+```
+
+Create the key as you wish (name, phrase).
+Add the key to the ssh agent
+
+```shell
+    ssh-add ~/.ssh/<priv-key-name>
+```
+
+Copy the public key.
+Go to Account > Settings > SSH and GPK Keys, or (link)[https://github.com/settings/keys]
+Click on New SSH Key
+Add a title and put the public key into the Key textfield
+
 ### Manual linking
 
 ```shell
