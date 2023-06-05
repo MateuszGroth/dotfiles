@@ -67,8 +67,13 @@ Follow the instructions to add brew to path and then
 Create the key as you wish (name, phrase).
 Add the key to the ssh agent
 
+Put the following code into your _~/.ssh/config_ file
+
 ```shell
-    ssh-add ~/.ssh/<priv-key-name>
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/<token name>
 ```
 
 Copy the public key.
