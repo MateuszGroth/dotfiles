@@ -46,7 +46,7 @@ Follow the instructions to add brew to path and then
     brew bundle --file ~/.dotfiles/brew/Brewfile
 ```
 
-4. Bootstrap the machine
+4. Bootstrap the machine (linking)
 
 ```shell
     bash ./install/bootstrap.sh
@@ -88,8 +88,15 @@ Add a title and put the public key into the Key textfield
     ln -s ~/.dotfiles/git/gitignore ~/.gitignore
     ln -s ~/.dotfiles/hyper/.hyper.js ~/.hyper.js
     ln -s ~/.dotfiles/zsh/rc.zsh ~/.zshrc
+    ln -s ~/.dotfiles/lvim/config.lua ~/.config/lvim/config.lua
 ```
 
 ### Env variables
 
 Put you environment variables into ~/.env.sh
+
+### Brew bundle
+
+```
+    brew bundle dump
+```
