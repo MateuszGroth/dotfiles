@@ -58,6 +58,14 @@ Follow the instructions to add brew to path and then
     bash ./oh-my-zsh/install.sh
 ```
 
+5. Install lvim
+
+Make sure you launch nvim first so required plugins are installed
+
+```shell
+    bash ./lvim/install.sh
+```
+
 6. setup git ssh connection
 
 ```shell
