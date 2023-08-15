@@ -56,6 +56,7 @@ alias gbuu='git-branch-utils -u'
 alias gbrr='git-branch-utils -r -b develop'
 alias gg='git branch | fzf | xargs git checkout'
 alias gup='git branch --set-upstream-to=origin/$(git-current-branch) $(git-current-branch)'
+alias gpup='git push --set-upstream origin $(git-current-branch)'
 
 alias gnext='git log --ancestry-path --format=%H ${commit}..master | tail -1 | xargs git checkout'
 alias gprev='git checkout HEAD^'
@@ -141,4 +142,10 @@ dbranches () {
 	else
 		git branch | awk $1 | xargs git branch -d
 	fi
+}
+
+yarn_rm () {
+    [[ -z $1 ]] && echo "pass package pattern";
+
+    [[ -n $1 ]] && cat package.json | awk $1 | sed -e 's/"\(@.*\)":.*/\1/' | xargs yarn remove
 }
