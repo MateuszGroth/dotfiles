@@ -134,3 +134,11 @@ copy-line () {
 open-at-line () {
   vim $(rg --line-number "${1:-.}" | sk --delimiter ':' --preview 'bat --color=always --highlight-line {2} {1}' | awk -F ':' '{print "+"$2" "$1}')
 }
+
+dbranches () {
+	if [[ -z $1 ]]; then
+		git branch | awk '!/master/ && !/main/' | xargs git branch -d
+	else
+		git branch | awk $1 | xargs git branch -d
+	fi
+}
