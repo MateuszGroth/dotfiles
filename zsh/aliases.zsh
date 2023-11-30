@@ -5,9 +5,9 @@ alias dc=docker-compose
 alias dkill="pgrep \"Docker\" | xargs kill -9"
 alias hcat='highlight -O ansi'
 
-alias v='lvim -w ~/.vimlog "$@"'
-alias vi='lvim -w ~/.vimlog "$@"'
-alias vim='lvim -w ~/.vimlog "$@"'
+alias v='nvim -w ~/.vimlog "$@"'
+alias vi='nvim -w ~/.vimlog "$@"'
+alias vim='nvim -w ~/.vimlog "$@"'
 
 alias zn='vim $NOTES_DIR/$(date +"%Y%m%d%H%M.md")'
 
@@ -18,7 +18,6 @@ alias s='source ~/.zshrc'
 alias h=heroku
 alias jj='pbpaste | jsonpp | pbcopy'
 alias trim="awk '{\$1=\$1;print}'"
-
 
 # GIT ALIASES -----------------------------------------------------------------
 alias gc='git commit'
@@ -55,6 +54,7 @@ alias gbdd='git-branch-utils -d'
 alias gbuu='git-branch-utils -u'
 alias gbrr='git-branch-utils -r -b develop'
 alias gg='git branch | fzf | xargs git checkout'
+alias gdel='git branch | fzf -m | xargs git branch -D'
 alias gup='git branch --set-upstream-to=origin/$(git-current-branch) $(git-current-branch)'
 alias gpup='git push --set-upstream origin $(git-current-branch)'
 
@@ -137,15 +137,15 @@ open-at-line () {
 }
 
 dbranches () {
-	if [[ -z $1 ]]; then
-		git branch | awk '!/master/ && !/main/' | xargs git branch -d
-	else
-		git branch | awk $1 | xargs git branch -d
-	fi
+    [[ -z $1 ]] && git branch | awk '!/master/ && !/main/' | xargs git branch -d
+
+	[[ -n $1 ]] && git branch | awk $1 | xargs git branch -d
 }
 
 yarn_rm () {
     [[ -z $1 ]] && echo "pass package pattern";
 
-    [[ -n $1 ]] && cat package.json | awk $1 | sed -e 's/"\(@.*\)":.*/\1/' | xargs yarn remove
+    [[ -n $1 ]] && cat package.json | awk $1 | sed -e 's/"\(.*\)":.*/\1/' | xargs yarn remove
 }
+
+# echo $array | awk "/'.*'/" | sed -e "s/'\(.*\)'/\1/"

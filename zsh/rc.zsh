@@ -14,6 +14,7 @@ source_if_exists () {
 }
 
 plugins=(
+    fzf
     git
     macos
     github
