@@ -142,10 +142,40 @@ dbranches () {
 	[[ -n $1 ]] && git branch | awk $1 | xargs git branch -d
 }
 
+find-merge () {
+    commit=$1
+    branch=${2:-HEAD}
+    (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2
+}
+
+show-merge () {
+   merge=$(find-merge $1 $2) && [ -n \"$merge\" ] && git show $merge
+}
+
 yarn_rm () {
     [[ -z $1 ]] && echo "pass package pattern";
 
     [[ -n $1 ]] && cat package.json | awk $1 | sed -e 's/"\(.*\)":.*/\1/' | xargs yarn remove
 }
 
+# yarm_rm "/semantic/"
 # echo $array | awk "/'.*'/" | sed -e "s/'\(.*\)'/\1/"
+
+# sed -e 's/"\(.*\)":.*/\1/' -> "package": "package@123" -> "package"
+
+# du -h -d 1 | grep "M" | sed -e "s/\.[0-9]//" | sed -e 's/ \([0-9]\)/\1/' | sort -rn
+# awk '{print $2,$1}'
+
+# cat package.json | jq '.["devDependencies"]' | grep ':' | sed -e 's/"\(.*\)":"\(.*\)"/\1@\2/'
+
+# cat test.json | jq '.["devDependencies"]' | grep ':' | sed -e 's/"\(.*\)": "\(.*\)"/\1@\2/' | sed -e 's/,//' | xargs yarn add -D
+
+# tr command to replace string (simpler sed)
+# get all babel packages and upgrade
+# cat package.json | grep '@babel' | sed -e 's/"\(.*\)"\:.*,/\1@7.24.8/' | tr '\n' ' ' | xargs yarn upgrade
+
+# actually tr is not needed here
+# cat package.json | grep '@babel' | sed -e 's/"\(.*\)"\:.*,/\1@7.24.8/' | xargs yarn upgrade
+
+# run on each 'item' separately instead of echoing all at once
+# xargs -n 1 echo

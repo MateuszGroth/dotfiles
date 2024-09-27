@@ -29,6 +29,7 @@ plugins=(
 source_if_exists $ZSH/oh-my-zsh.sh
 source_if_exists $HOME/.env.sh
 source_if_exists $DOTFILES/zsh/git.zsh
+source_if_exists $DOTFILES/tmux/tmux.zsh
 source_if_exists ~/.fzf.zsh
 source_if_exists $DOTFILES/zsh/aliases.zsh
 source_if_exists /usr/local/etc/profile.d/z.sh

@@ -84,6 +84,12 @@ Host github.com
   IdentityFile ~/.ssh/<token name>
 ```
 
+or add using
+
+```shell
+    ssh-add -K ~/.ssh/<token name>
+```
+
 Copy the public key.
 Go to Account > Settings > SSH and GPK Keys, or (link)[https://github.com/settings/keys]
 Click on New SSH Key

@@ -36,6 +36,7 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-eunuch',
+  'ThePrimeagen/vim-be-good',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',

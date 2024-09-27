@@ -1,0 +1,1 @@
+tmux source $DOTFILES/tmux/.tmux.conf
