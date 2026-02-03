@@ -61,7 +61,6 @@ alias gpup='git push --set-upstream origin $(git-current-branch)'
 alias gnext='git log --ancestry-path --format=%H ${commit}..master | tail -1 | xargs git checkout'
 alias gprev='git checkout HEAD^'
 
-alias crs='cursor $(pwd)'
 
 # FUNCTIONS -------------------------------------------------------------------
 # function gg {
@@ -181,3 +180,21 @@ yarn_rm () {
 
 # run on each 'item' separately instead of echoing all at once
 # xargs -n 1 echo
+
+function quirely() {
+  kubectl config current-context | grep -q "quirely" || kubectl config use-context $(kubectl config get-contexts -o name | grep gatekeeper | grep quirely)
+  local pod=$(kubectl get pods -l app=gatekeeper -n default -o name | grep -v deploy | head -1 | cut -d/ -f2)
+  kubectl exec -it "$pod" -n default -- /bin/sh
+}
+
+function flinklyus() {
+  kubectl config use-context $(kubectl config get-contexts -o name | grep gatekeeper | grep flinkly | grep us | head -1)
+  local pod=$(kubectl get pods -l app=gatekeeper -n default -o name | grep -v deploy | head -1 | cut -d/ -f2)
+  kubectl exec -it "$pod" -n default -- /bin/sh
+}
+
+function flinklyeu() {
+  kubectl config use-context $(kubectl config get-contexts -o name | grep gatekeeper | grep flinkly | grep eu | head -1)
+  local pod=$(kubectl get pods -l app=gatekeeper -n default -o name | grep -v deploy | head -1 | cut -d/ -f2)
+  kubectl exec -it "$pod" -n default -- /bin/sh
+}
