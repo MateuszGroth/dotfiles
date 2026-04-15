@@ -112,24 +112,7 @@ require('lazy').setup({
 
   -- Formatting
   {
-    'jose-elias-alvarez/null-ls.nvim',
-  },
-
-  -- Obsidian
-  {
-    'epwalsh/obsidian.nvim',
-    ft = 'markdown',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'hrsh7th/nvim-cmp',
-      'nvim-telescope/telescope.nvim',
-      'godlygeek/tabular',
-      'preservim/vim-markdown',
-    },
-    opts = {
-      dir = '/Users/andrew/notes',
-      daily_notes = { folder = '10 Journal' },
-    },
+    'nvimtools/none-ls.nvim',
   },
 
 })
@@ -196,27 +179,26 @@ local servers = {
       },
     },
   },
-  tsserver = {},
+  ts_ls = {},
   eslint = {},
   pyright = {},
 }
 
 mason_lsp.setup({
   ensure_installed = vim.tbl_keys(servers),
-})
+  handlers = {
+    function(server)
+      local server_opts = {
+        capabilities = capabilities,
+      }
 
-mason_lsp.setup_handlers({
-  function(server)
-    local server_opts = {
-      capabilities = capabilities,
-    }
+      if servers[server] then
+        server_opts = vim.tbl_deep_extend('force', server_opts, servers[server])
+      end
 
-    if servers[server] then
-      server_opts = vim.tbl_deep_extend('force', server_opts, servers[server])
-    end
-
-    lspconfig[server].setup(server_opts)
-  end,
+      lspconfig[server].setup(server_opts)
+    end,
+  },
 })
 
 -- =====================

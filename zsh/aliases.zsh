@@ -60,6 +60,7 @@ alias gpup='git push --set-upstream origin $(git-current-branch)'
 
 alias gnext='git log --ancestry-path --format=%H ${commit}..master | tail -1 | xargs git checkout'
 alias gprev='git checkout HEAD^'
+alias crs='cursor $(pwd)'
 
 
 # FUNCTIONS -------------------------------------------------------------------
