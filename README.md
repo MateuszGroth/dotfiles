@@ -66,6 +66,14 @@ Make sure you launch nvim first so required plugins are installed
     bash ./lvim/install.sh
 ```
 
+make sure to cleanup cache after updates
+
+```shell
+rm -rf ~/.local/share/nvim/lazy/LuaSnip
+rm -rf ~/.local/share/nvim/lazy-rocks
+rm -rf ~/.cache/nvim
+```
+
 6. setup git ssh connection
 
 ```shell
